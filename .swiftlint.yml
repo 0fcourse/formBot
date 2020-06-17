@@ -1,0 +1,30 @@
+excluded:
+  - Pods
+  - RealmConnector/Realm Models
+  - fastlane
+
+disabled_rules:
+  - line_length
+#  - trailing_whitespace
+  - type_body_length
+  - file_length
+  - colon
+  - comma
+  - force_cast
+  - force_try
+  - large_tuple
+  - function_body_length
+  - closure_parameter_position
+  - identifier_name
+  - cyclomatic_complexity
+  - multiple_closures_with_trailing_closure
+  - no_space_in_method_call
+
+# Rule configuration
+
+nesting:
+  type_level:
+    warning: 3
+
+type_name:
+  max_length: 60

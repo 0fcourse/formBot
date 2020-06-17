@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  FromBot
+
+  Created by Marwan Aziz on 07/06/2020.
+  Copyright © 2020 Marwan Aziz. All rights reserved.
+*/
+
+//Registration Controller
+"reg.registration" = "Registration";
+"reg.greeting_message" = "Welcome to Awesome Profile\nThis step will take less than a minute to finish.";
+//MARK: Questions
+"reg.question.username_question" = "What is your username would you like to be, a valid username can only contains alphanumeric characters";
+"reg.question.password_question" = "New you need a password. Valid password can only contains alphanumeric characters and minimum 6 characters!";
+"reg.question.email_question" = "Now I need your email, just in case you forgot your password!";
+"reg.question.nickname_question" = "What a nickname would you like to have, this will be used as your profile name. Valide nickname can only contains alphabetic characters and minimum 4 characters. Nickname can be changed at anytime later";
+"reg.question.gender_question" = "I need to know your gender, so other users can find you by gender! Please select one of the options";
+"reg.question.birth_year_question" = "Please let me know your year of birth!";
+"reg.question.country_question" = "Please select your country!";
+"reg.question.city_question"= "Please select your city!";
+"reg.message.check_username" = "Please a moment, I'm checking your username availability 🤞";
+"reg.message.username_available" = "Great, your username is available 🥳";
+"reg.message.username_unavailable" = "Sorry, %@ is already taken 😔\nPlease try a different one!";
+"reg.message.email_availability_check" = "Please a moment, I'm checking your email";
+"reg.message.email_unavailable" = "This email is already in use!\nIf you have forgotten your password you can go back to the login screen and try to retrieve your password, or simply enter another email.";
+"reg.message.email_available" = "All good 👍";
+"reg.message.city_search_canceled" = "Hmm, if you couldn't find your city on Google places, please just type it";
+"reg.message.city_search_error" = "Please enter the city name";
+"reg.question.conformation_answers" = "Are you happy with all your answers?";
+"reg.question.selecting_to_edit_question" = "Okey, which question, would you like to amend?";
+"reg.message.user_confirm_questions" = "Great, Wellcome to Awesome Profile";
+"reg.message.completed_answers" = "Here is your answers:";
+
+//Registration options
+"reg.username" = "Username";
+"reg.email" = "Email";
+"reg.password" = "Password";
+"reg.nickname" = "Nickname";
+"reg.year_of_birth" = "Year Of Birth";
+"reg.gender" = "Gender";
+"reg.country" = "Country";
+"reg.city" = "City";
+"reg.cancel" = "Cancel";
+"reg.yes" = "YES";
+"reg.no" = "NO";
+//Genders Options;
+"reg.male" = "Male";
+"reg.female" = "Female";
+"reg.other" = "Other";
+//Error Messages
+//Password
+"reg.error.password_incorrect" = "Valid password can only contains alphanumeric characters and minimum 6 characters!\nPlease retry again!";
+//Username
+"reg.error.username_general" = "Username can only contains alphanumeric characters, starts with a letter and minimum 4 characters\nPlease try again!";
+"reg.error.username_contains_emoji" = "We love ❤️ emojis too, but currently nickname can't contain emojis\nPlease try different one!";
+
+//Nickname
+"reg.error.nickname_general" = "Nickname has to be at least 2 characters length, and can only contains alphabetical characters.\nPlease try again";
+"reg.error.nickname_emoji" = "Nice try, but currently nickname can't contain emojis!\nPlease try different one.";
+//email
+"reg.error.email_general" = "Invalid email, please check your email and try again";
+
+//City name
+"reg.error.city_name_emoji_error" = "Never heard of this city!!? 😜\nCity name cannot contain emojis, please enter a valid city name!";
+"reg.error.city_name_error" = "Please enter a valid city name!";
+
+//Connection Errors
+"reg.error.not_connected" = "Please make sure you have Internet connection to continue the registration.";
+"reg.error.not_connected_general" = "Please make sure you have Internet connection before you can continue";
+
+//Login
+"login.error.invalid_login_details" = "Invalid login details, please check your username and password and try again!";
+
+//MARK: Profile Editing
+"profile.about" = "ABOUT";
+"profile.greeting_message" = "Welcome to your awesome profile";
+

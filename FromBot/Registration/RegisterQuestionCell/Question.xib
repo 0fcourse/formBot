@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicQuestion" rowHeight="130" id="9WY-xF-nbp" userLabel="BasicQuestion" customClass="QuestionTableViewCell" customModule="FromBot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9WY-xF-nbp" id="Zec-WM-3zY">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNA-aH-aET" userLabel="HView">
+                        <rect key="frame" x="3" y="65" width="50" height="49"/>
+                        <color key="backgroundColor" name="botChatBubble"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="GeH-ot-Pwi"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bV-gN-Pb0" userLabel="VView">
+                        <rect key="frame" x="0.0" y="16" width="30" height="103"/>
+                        <color key="backgroundColor" name="backGround"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eg0-vj-jRQ" userLabel="BubbleView">
+                        <rect key="frame" x="30" y="16" width="87.5" height="98"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pck-kD-Y3B">
+                                <rect key="frame" x="16" y="16" width="55.5" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2C-Fa-0Hv">
+                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="66"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <color key="textColor" name="chatText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="botChatBubble"/>
+                        <constraints>
+                            <constraint firstItem="pck-kD-Y3B" firstAttribute="leading" secondItem="eg0-vj-jRQ" secondAttribute="leading" constant="16" id="OJr-xI-I5g"/>
+                            <constraint firstAttribute="bottom" secondItem="pck-kD-Y3B" secondAttribute="bottom" constant="16" id="OKu-Om-AcP"/>
+                            <constraint firstItem="pck-kD-Y3B" firstAttribute="top" secondItem="eg0-vj-jRQ" secondAttribute="top" constant="16" id="eqN-tR-xyB"/>
+                            <constraint firstAttribute="trailing" secondItem="pck-kD-Y3B" secondAttribute="trailing" constant="16" id="uWC-18-akf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="eg0-vj-jRQ" firstAttribute="leading" secondItem="2bV-gN-Pb0" secondAttribute="trailing" id="5lH-UD-61h"/>
+                    <constraint firstItem="tNA-aH-aET" firstAttribute="height" secondItem="eg0-vj-jRQ" secondAttribute="height" multiplier="0.5" id="OXy-b2-dy5"/>
+                    <constraint firstItem="2bV-gN-Pb0" firstAttribute="bottom" secondItem="eg0-vj-jRQ" secondAttribute="bottom" constant="5" id="TRw-Nb-l6b"/>
+                    <constraint firstItem="2bV-gN-Pb0" firstAttribute="top" secondItem="eg0-vj-jRQ" secondAttribute="top" id="Usf-C0-Jcg"/>
+                    <constraint firstItem="eg0-vj-jRQ" firstAttribute="leading" secondItem="Zec-WM-3zY" secondAttribute="leading" constant="30" id="bO3-Gb-17t"/>
+                    <constraint firstItem="tNA-aH-aET" firstAttribute="bottom" secondItem="eg0-vj-jRQ" secondAttribute="bottom" id="bbc-E9-UvV"/>
+                    <constraint firstItem="tNA-aH-aET" firstAttribute="leading" secondItem="Zec-WM-3zY" secondAttribute="leading" constant="3" id="e6M-P0-9Gz"/>
+                    <constraint firstItem="eg0-vj-jRQ" firstAttribute="top" secondItem="Zec-WM-3zY" secondAttribute="top" constant="16" id="hlH-8c-TGV"/>
+                    <constraint firstItem="eg0-vj-jRQ" firstAttribute="width" relation="lessThanOrEqual" secondItem="Zec-WM-3zY" secondAttribute="width" multiplier="0.7" id="pih-1s-Vgy"/>
+                    <constraint firstAttribute="bottom" secondItem="eg0-vj-jRQ" secondAttribute="bottom" constant="16" id="tqN-LO-jOu"/>
+                    <constraint firstItem="2bV-gN-Pb0" firstAttribute="leading" secondItem="Zec-WM-3zY" secondAttribute="leading" id="wwg-nC-uFo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bubbleView" destination="eg0-vj-jRQ" id="bjP-8t-o1G"/>
+                <outlet property="horizontalLayer" destination="tNA-aH-aET" id="C6P-gh-Uj8"/>
+                <outlet property="lblMessage" destination="f2C-Fa-0Hv" id="vEO-mU-jB8"/>
+                <outlet property="verticalLayer" destination="2bV-gN-Pb0" id="6fW-nd-HS1"/>
+            </connections>
+            <point key="canvasLocation" x="24" y="-90"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="backGround">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="botChatBubble">
+            <color red="0.18799999356269836" green="0.81999999284744263" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="chatText">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

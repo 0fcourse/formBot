@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1AL-Ix-qwY" customClass="ChatInput" customModule="FromBot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Law-MO-RUc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTP-AF-60t">
+                            <rect key="frame" x="329" y="7.5" width="38" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Send">
+                                <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="sendPressedWithSender:" destination="1AL-Ix-qwY" eventType="touchUpInside" id="QRq-yI-0K4"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tew-IZ-ggF">
+                            <rect key="frame" x="42" y="8" width="279" height="29"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="inputFieldText"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkY-Zx-DUx">
+                            <rect key="frame" x="5" y="14" width="32" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="iFS-2r-s0j"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="14"/>
+                            <color key="textColor" name="inputFieldText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="inputFieldSkin"/>
+                    <constraints>
+                        <constraint firstItem="Tew-IZ-ggF" firstAttribute="top" secondItem="Law-MO-RUc" secondAttribute="top" constant="8" id="4Xz-ah-PuD"/>
+                        <constraint firstItem="GkY-Zx-DUx" firstAttribute="leading" secondItem="Law-MO-RUc" secondAttribute="leading" constant="5" id="NRA-nW-n6e"/>
+                        <constraint firstItem="GkY-Zx-DUx" firstAttribute="centerY" secondItem="Tew-IZ-ggF" secondAttribute="centerY" id="RZy-o6-CoC"/>
+                        <constraint firstItem="Tew-IZ-ggF" firstAttribute="leading" secondItem="GkY-Zx-DUx" secondAttribute="trailing" constant="5" id="TDT-hf-73c"/>
+                        <constraint firstAttribute="height" constant="45" id="gMj-xx-1FD"/>
+                        <constraint firstAttribute="bottom" secondItem="Tew-IZ-ggF" secondAttribute="bottom" constant="8" id="lZ7-Go-zc5"/>
+                        <constraint firstAttribute="trailing" secondItem="LTP-AF-60t" secondAttribute="trailing" constant="8" id="mSZ-e6-JI9"/>
+                        <constraint firstItem="LTP-AF-60t" firstAttribute="leading" secondItem="Tew-IZ-ggF" secondAttribute="trailing" constant="8" id="ovB-wm-rho"/>
+                        <constraint firstItem="LTP-AF-60t" firstAttribute="centerY" secondItem="Tew-IZ-ggF" secondAttribute="centerY" id="v2c-x7-HKx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="inputFieldSkin"/>
+            <constraints>
+                <constraint firstItem="Law-MO-RUc" firstAttribute="bottom" secondItem="tVw-j5-3GQ" secondAttribute="bottom" id="3Rr-4N-rPI"/>
+                <constraint firstItem="Law-MO-RUc" firstAttribute="trailing" secondItem="tVw-j5-3GQ" secondAttribute="trailing" id="OTB-Cq-nIS"/>
+                <constraint firstItem="Law-MO-RUc" firstAttribute="leading" secondItem="tVw-j5-3GQ" secondAttribute="leading" id="kmf-li-2Ml"/>
+                <constraint firstItem="Law-MO-RUc" firstAttribute="top" secondItem="tVw-j5-3GQ" secondAttribute="top" id="wBi-dH-JO9"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="tVw-j5-3GQ"/>
+            <connections>
+                <outlet property="ConstraintContainerBottom" destination="3Rr-4N-rPI" id="bwQ-MH-Jl8"/>
+                <outlet property="ConstraintContainerHeight" destination="gMj-xx-1FD" id="o9K-0I-F64"/>
+                <outlet property="btnSend" destination="LTP-AF-60t" id="Esh-lK-Irx"/>
+                <outlet property="constraintsTextCounterWidth" destination="iFS-2r-s0j" id="BN2-tH-JS4"/>
+                <outlet property="lblCounter" destination="GkY-Zx-DUx" id="ajo-Pa-y74"/>
+                <outlet property="txtMessage" destination="Tew-IZ-ggF" id="d4a-j7-Rgo"/>
+            </connections>
+            <point key="canvasLocation" x="130.40000000000001" y="-523.98800599700155"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="inputFieldSkin">
+            <color red="0.55699998140335083" green="0.55699998140335083" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="inputFieldText">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+    </resources>
+</document>

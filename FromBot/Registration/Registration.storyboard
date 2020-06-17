@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ldo-c9-vlr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RegisterVC-->
+        <scene sceneID="acQ-iR-TYr">
+            <objects>
+                <viewController storyboardIdentifier="registrationVC" id="biI-oH-Fbx" customClass="RegisterVC" customModule="FromBot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yis-S4-hHc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hvx-JM-vQE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="763"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voC-dP-FMl">
+                                <rect key="frame" x="0.0" y="851" width="414" height="45"/>
+                                <color key="backgroundColor" name="inputFieldSkin"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Hvm-93-vI5"/>
+                                    <constraint firstAttribute="height" constant="45" id="jfT-jp-qn9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="backGround"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="voC-dP-FMl" secondAttribute="bottom" id="7NC-af-Oh4"/>
+                            <constraint firstItem="voC-dP-FMl" firstAttribute="trailing" secondItem="BT7-1A-VTP" secondAttribute="trailing" id="E7L-4L-kwz"/>
+                            <constraint firstItem="Hvx-JM-vQE" firstAttribute="leading" secondItem="BT7-1A-VTP" secondAttribute="leading" id="LXp-RW-XYO"/>
+                            <constraint firstItem="Hvx-JM-vQE" firstAttribute="top" secondItem="BT7-1A-VTP" secondAttribute="top" id="M5w-dp-Lvr"/>
+                            <constraint firstItem="Hvx-JM-vQE" firstAttribute="trailing" secondItem="BT7-1A-VTP" secondAttribute="trailing" id="gcE-hg-mGS"/>
+                            <constraint firstItem="voC-dP-FMl" firstAttribute="top" secondItem="Hvx-JM-vQE" secondAttribute="bottom" id="pK3-FQ-muA"/>
+                            <constraint firstItem="voC-dP-FMl" firstAttribute="leading" secondItem="BT7-1A-VTP" secondAttribute="leading" id="qJ6-Lc-qS4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BT7-1A-VTP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Yv-if-jI3"/>
+                    <connections>
+                        <outlet property="constraintInputViewBottom" destination="7NC-af-Oh4" id="C48-V7-ozK"/>
+                        <outlet property="constraintInputViewHeight" destination="jfT-jp-qn9" id="y14-P4-GS4"/>
+                        <outlet property="inputContainer" destination="voC-dP-FMl" id="2Vi-Up-FZC"/>
+                        <outlet property="tableView" destination="Hvx-JM-vQE" id="0Xq-ja-35o"/>
+                        <segue destination="4z3-jX-PCD" kind="presentation" identifier="reg_to_profile" id="dr5-sB-nbb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xFf-Ba-pGX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086.9565217391305" y="182.8125"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="OpR-mi-up9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="4z3-jX-PCD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DFu-SK-Fhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1642" y="40"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gVN-cb-nUZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ldo-c9-vlr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dbk-4p-0Jv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="biI-oH-Fbx" kind="relationship" relationship="rootViewController" id="RwZ-nr-HGH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c6L-P8-Qvl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176.81159420289856" y="182.8125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="backGround">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="inputFieldSkin">
+            <color red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
