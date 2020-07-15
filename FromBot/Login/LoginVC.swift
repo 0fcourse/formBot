@@ -23,6 +23,7 @@ class LoginVC: UIViewController {
     fileprivate func initialisation() {
         fieldUsername.delegate = self
         fieldPassword.delegate = self
+        observeTextFields()
         bindViewModel()
     }
 
@@ -39,17 +40,38 @@ class LoginVC: UIViewController {
         }
     }
 
-    @IBAction func loginPressed(_ sender: Any) {
+    @IBAction fileprivate func loginPressed(_ sender: Any) {
         self.view.endEditing(true)
-        viewModel.username = fieldUsername.text
-        viewModel.password = fieldPassword.text
         viewModel.login()
+    }
+
+    fileprivate func clearFields() {
+        fieldPassword.text = ""
+        fieldUsername.text = ""
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        fieldPassword.text = ""
-        fieldUsername.text = ""
+        clearFields()
+        removeFieldsObserver()
+    }
+
+    fileprivate func removeFieldsObserver() {
+        fieldPassword.removeTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        fieldUsername.removeTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+
+    fileprivate func observeTextFields() {
+        fieldPassword.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        fieldUsername.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+
+    fileprivate func setUsername(_ username: String?) {
+        viewModel.username = username
+    }
+
+    fileprivate func setPassword(_ password: String?) {
+        viewModel.password = password
     }
 }
 
@@ -68,5 +90,13 @@ extension LoginVC: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         viewModel.fieldStartEditing()
+    }
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField == fieldUsername {
+            setUsername(textField.text)
+        } else if textField == fieldPassword {
+            setPassword(textField.text)
+        }
     }
 }

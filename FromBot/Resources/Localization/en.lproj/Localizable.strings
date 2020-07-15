@@ -71,6 +71,8 @@
 //Login
 "login.error.invalid_login_details" = "Invalid login details, please check your username and password and try again!";
 
+"login.error.unable_to_login" = "Unable to login, please try again later";
+
 //MARK: Profile Editing
 "profile.about" = "ABOUT";
 "profile.greeting_message" = "Welcome to your awesome profile";

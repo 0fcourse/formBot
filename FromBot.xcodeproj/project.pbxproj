@@ -66,6 +66,9 @@
 		BA5A57A02492DFDD003BC4EC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A579F2492DFDD003BC4EC /* LoginViewModel.swift */; };
 		BA5A57A22492FE21003BC4EC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A57A12492FE21003BC4EC /* ProfileVC.swift */; };
 		BA5A57A4249301B5003BC4EC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A57A3249301B5003BC4EC /* ProfileViewModel.swift */; };
+		BA679706249BA21F005D16F4 /* TestLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA679705249BA21F005D16F4 /* TestLoginViewModel.swift */; };
+		BA679709249BAB42005D16F4 /* MockedDataConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA679708249BAB42005D16F4 /* MockedDataConnector.swift */; };
+		BA67970B249BAE5D005D16F4 /* MockedLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA67970A249BAE5D005D16F4 /* MockedLoginViewModel.swift */; };
 		BA7B531924990F8E0070690F /* APIConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA57F156248A5F9E00E4652E /* APIConnector.framework */; };
 		BA7B531A24990F8E0070690F /* APIConnector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA57F156248A5F9E00E4652E /* APIConnector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA7B531D24990F8E0070690F /* RealmConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA57F179248A5FDF00E4652E /* RealmConnector.framework */; };
@@ -227,6 +230,9 @@
 		BA5A579F2492DFDD003BC4EC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BA5A57A12492FE21003BC4EC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BA5A57A3249301B5003BC4EC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		BA679705249BA21F005D16F4 /* TestLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginViewModel.swift; sourceTree = "<group>"; };
+		BA679708249BAB42005D16F4 /* MockedDataConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDataConnector.swift; sourceTree = "<group>"; };
+		BA67970A249BAE5D005D16F4 /* MockedLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedLoginViewModel.swift; sourceTree = "<group>"; };
 		BA7B5321249947E40070690F /* CommentWithImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentWithImageCell.xib; sourceTree = "<group>"; };
 		BA7B532324994BC90070690F /* CommentWithImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWithImageCell.swift; sourceTree = "<group>"; };
 		BA922928248914F2008EDBD3 /* FromBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FromBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,6 +507,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BA679707249BAAFE005D16F4 /* Mocked */ = {
+			isa = PBXGroup;
+			children = (
+				BA679708249BAB42005D16F4 /* MockedDataConnector.swift */,
+				BA67970A249BAE5D005D16F4 /* MockedLoginViewModel.swift */,
+			);
+			path = Mocked;
+			sourceTree = "<group>";
+		};
 		BA92291F248914F2008EDBD3 = {
 			isa = PBXGroup;
 			children = (
@@ -547,8 +562,10 @@
 		BA922941248914F5008EDBD3 /* FromBotTests */ = {
 			isa = PBXGroup;
 			children = (
+				BA679707249BAAFE005D16F4 /* Mocked */,
 				BA922942248914F5008EDBD3 /* FromBotTests.swift */,
 				BA922944248914F5008EDBD3 /* Info.plist */,
+				BA679705249BA21F005D16F4 /* TestLoginViewModel.swift */,
 			);
 			path = FromBotTests;
 			sourceTree = "<group>";
@@ -1157,6 +1174,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA679706249BA21F005D16F4 /* TestLoginViewModel.swift in Sources */,
+				BA67970B249BAE5D005D16F4 /* MockedLoginViewModel.swift in Sources */,
+				BA679709249BAB42005D16F4 /* MockedDataConnector.swift in Sources */,
 				BA922943248914F5008EDBD3 /* FromBotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1234,7 +1254,7 @@
 			baseConfigurationReference = 6AED1B0DC1AE245921E5319D /* Pods-APIConnector.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1265,7 +1285,7 @@
 			baseConfigurationReference = E49A8E7C68FAE7A6DCB7ADB3 /* Pods-APIConnector.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1295,7 +1315,7 @@
 			baseConfigurationReference = 221F7353B39BB85C5AF92B57 /* Pods-DataConnector.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1326,7 +1346,7 @@
 			baseConfigurationReference = 4B6341440DEE6105EFEC05E5 /* Pods-DataConnector.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1356,7 +1376,7 @@
 			baseConfigurationReference = 7851610FE403D1075ABF02BB /* Pods-RealmConnector.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1387,7 +1407,7 @@
 			baseConfigurationReference = E452CAF89030723F24A9C4F6 /* Pods-RealmConnector.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

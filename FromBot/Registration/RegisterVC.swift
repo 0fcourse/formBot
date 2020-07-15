@@ -210,8 +210,8 @@ class RegisterVC: UIViewController, ChatInputDelegate {
 
     fileprivate func scrollToBottom(animation:Bool, delay:Int) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: { [weak self] in
-            let numberofRows = self?.tableView.numberOfRows(inSection: 0) ?? 0
-            let row = numberofRows - 1
+            let numberOfRows = self?.tableView.numberOfRows(inSection: 0) ?? 0
+            let row = numberOfRows - 1
             if  row > -1 {
                 let indexPath = IndexPath(item:row , section: 0)
                 self?.tableView.scrollToRow(at: indexPath, at: .bottom, animated: animation)

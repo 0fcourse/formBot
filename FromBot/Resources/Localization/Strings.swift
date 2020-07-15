@@ -16,6 +16,8 @@ public enum LocalString {
     public enum Error {
       /// Invalid login details, please check your username and password and try again!
       public static let invalidLoginDetails = LocalString.tr("Localizable", "login.error.invalid_login_details")
+      /// Unable to login, please try again later
+      public static let unableToLogin = LocalString.tr("Localizable", "login.error.unable_to_login")
     }
   }
 

@@ -9,53 +9,110 @@
 import Foundation
 import DataConnector
 
-struct LoginViewModel {
+class LoginViewModel {
 
+    fileprivate enum LoginDetailsErrorType {
+        case invalidDetails
+        case containEmoji
+        case none
+        case unknown
+    }
+
+    var dataConnector: IDataConnector { DataConnector.shared }
     var username: String?
     var password: String?
     let loginError: ObservableValue<String?> = ObservableValue(nil)
     let userLoggedIn: ObservableValue<Bool> = ObservableValue(false)
 
     func fieldStartEditing() {
+        // The value of the login error will be triggered by the observer.
         loginError.value = nil
     }
 
-    func login() {
+    fileprivate func loginDetailsError() -> LoginDetailsErrorType {
+
         guard let username = username, username.count > 3 else {
-            loginError.value = LocalString.Login.Error.invalidLoginDetails
-            return
+            return .invalidDetails
         }
 
         if username.hasEmoji() {
-            loginError.value = LocalString.Reg.Error.usernameContainsEmoji
-            return
+
+            return .containEmoji
         }
 
         guard let password = password, password.trimmingCharacters(in: .whitespaces).count > 3  else {
-            loginError.value = LocalString.Login.Error.invalidLoginDetails
-            return
+            return .invalidDetails
         }
 
         if password.hasEmoji() {
-            loginError.value = LocalString.Login.Error.invalidLoginDetails
+
+            return .containEmoji
+        }
+
+        return .none
+    }
+
+    fileprivate func reportLoginError(withType type: LoginDetailsErrorType) {
+
+        switch type {
+        case .invalidDetails:
+            reportError(LocalString.Login.Error.invalidLoginDetails)
+        case .containEmoji:
+            reportError(LocalString.Reg.Error.usernameContainsEmoji)
+        default:
+            reportError(LocalString.Login.Error.invalidLoginDetails)
+        }
+    }
+
+    fileprivate func reportError(_ error: String) {
+        // The value of the login error will be triggered by the observer
+        loginError.value = error
+    }
+
+    fileprivate func storeLoginDetails(_ userInfo: UserInfoDataConnectorModel, username: String) {
+        DataConnector.shared.storeUser(userInfo)
+        DataConnector.shared.localLogin(user: username)
+    }
+
+    fileprivate func handleSuccessResponse(_ userInfo: UserInfoDataConnectorModel) {
+        if let username = userInfo.username {
+            self.storeLoginDetails(userInfo, username: username)
+            self.userLoggedIn.value = true
+        } else {
+            reportError(LocalString.Login.Error.unableToLogin)
+        }
+    }
+
+    fileprivate func handleFailureResponse(_ error: ConnectionError) {
+        if error == .connectionError {
+            self.reportError(LocalString.Reg.Error.notConnected)
+        } else {
+            self.reportError(LocalString.Login.Error.invalidLoginDetails)
+        }
+    }
+
+    fileprivate func loginUser() {
+        guard let username = username, let password = password else {
             return
         }
 
-        DataConnector.shared.loginUser(username: username, password: password) { result in
+        dataConnector.loginUser(username: username, password: password) { [weak self] result in
             switch result {
             case .success(let userInfo):
-                if let username = userInfo.username {
-                    DataConnector.shared.storeUser(userInfo)
-                    DataConnector.shared.localLogin(user: username)
-                    self.userLoggedIn.value = true
-                }
+                self?.handleSuccessResponse(userInfo)
             case .failure(let error):
-                if error == .loginError {
-                    self.loginError.value = LocalString.Login.Error.invalidLoginDetails
-                } else {
-                    self.loginError.value = LocalString.Reg.Error.notConnected
-                }
+                self?.handleFailureResponse(error)
             }
+        }
+    }
+
+    func login() {
+
+        let loginError = loginDetailsError()
+        if loginError != .none {
+            reportLoginError(withType: loginError)
+        } else {
+            loginUser()
         }
     }
 }

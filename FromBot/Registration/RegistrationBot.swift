@@ -25,16 +25,23 @@ class RegistrationBot {
 
     private var listOfCountries: [String] {
         let locale = NSLocale.current
+        let userCountryCode = locale.regionCode
+        var userCountryName: String?
         let countryArray = NSLocale.isoCountryCodes
         var unsortedCountryArray:[String] = []
         for countryCode in countryArray {
-            let displayNameString = locale.localizedString(forRegionCode: countryCode)
-            if displayNameString != nil {
-                unsortedCountryArray.append(displayNameString!)
+            if let displayNameString = locale.localizedString(forRegionCode: countryCode) {
+                if countryCode == userCountryCode {
+                    userCountryName = displayNameString
+                }
+                unsortedCountryArray.append(displayNameString)
             }
         }
 
         var sortedCountryArray = unsortedCountryArray.sorted { $0 < $1 }
+        if let userCountry = userCountryName {
+            sortedCountryArray.insert(userCountry, at: 0)
+        }
         sortedCountryArray.insert("", at: 0)
         return sortedCountryArray
     }
@@ -266,8 +273,8 @@ class RegistrationBot {
             self.pickerViewDataSource = self.editingOptions
             postQuestion(delayTime: 500, questionType: .editingOption)
         } else if text == LocalString.Reg.yes {
-            self.postComment(comment: LocalString.Reg.Message.userConfirmQuestions, delayTime: oneSecond)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500), execute: { [weak self] in
+            self.postComment(comment: LocalString.Reg.Message.userConfirmQuestions, delayTime: oneSecond, withImageName: "welcome", commentType: .commentWithImage)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2000), execute: { [weak self] in
                 self?.registerUser()
             })
         }
